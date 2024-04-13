@@ -36,7 +36,13 @@ function createGameBoard() {
     const card = document.createElement("div");
     card.classList.add("card");
     card.dataset.symbol = symbol;
-    card.textContent = "?";
+
+    const content = document.createElement("div");
+    content.classList.add("content");
+    content.textContent = "?";
+
+    card.appendChild(content);
+
     card.addEventListener("click", () => flipCard(card));
     gameBoard.appendChild(card);
     cards.push(card);
@@ -62,7 +68,8 @@ function flipCard(card) {
     !card.classList.contains("matched")
   ) {
     card.classList.add("flip");
-    card.textContent = card.dataset.symbol;
+    const content = card.querySelector(".content");
+    content.textContent = card.dataset.symbol;
     selectedCards.push(card);
     if (selectedCards.length === 2) {
       setTimeout(checkMatch, 1000);
@@ -79,7 +86,8 @@ function checkMatch() {
     });
   } else {
     selectedCards.forEach((card) => {
-      card.textContent = "?";
+      const content = card.querySelector(".content");
+      content.textContent = "?";
       card.classList.remove("flip");
     });
   }
