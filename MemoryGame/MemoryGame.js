@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   createGameBoard();
+  const restartButton = document.getElementById("restartButton");
+  restartButton.addEventListener("click", restartGame);
 });
 
 const symbols = [
@@ -25,8 +27,12 @@ function createGameBoard() {
   const gameBoard = document.getElementById("gameBoard");
   gameBoard.innerHTML = "";
   selectedCards = [];
+
+  const duplicatedSymbols = [...symbols, ...symbols];
+  const shuffledSymbols = shuffleSymbols(duplicatedSymbols);
+
   for (let i = 0; i < totalPairs * 2; i++) {
-    const symbol = symbols[i % totalPairs];
+    const symbol = shuffledSymbols[i];
     const card = document.createElement("div");
     card.classList.add("card");
     card.dataset.symbol = symbol;
@@ -35,6 +41,18 @@ function createGameBoard() {
     gameBoard.appendChild(card);
     cards.push(card);
   }
+}
+
+function shuffleSymbols(symbols) {
+  const shuffledSymbols = symbols.slice();
+  for (let i = shuffledSymbols.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledSymbols[i], shuffledSymbols[j]] = [
+      shuffledSymbols[j],
+      shuffledSymbols[i],
+    ];
+  }
+  return shuffledSymbols;
 }
 
 function flipCard(card) {
@@ -71,23 +89,7 @@ function checkWin() {
   }
 }
 
-document.getElementById("restartButton").addEventListener("click", () => {
-  console.log("Restart button clicked"); // Check if the event listener is triggered
-
-  // Shuffle the cards array
-  shuffleCards();
-  console.log("Cards shuffled"); // Check if cards are shuffled
-
-  // Remove the "matched" class and reset the text content of all cards
-  cards.forEach((card) => {
-    card.classList.remove("matched");
-    card.textContent = "?";
-    card.addEventListener("click", () => flipCard(card));
-  });
-  console.log("Cards reset"); // Check if cards are reset
-
-  selectedCards = []; // Reset selectedCards array
-
-  // Regenerate the game board with shuffled cards
+function restartGame() {
+  shuffleSymbols(symbols);
   createGameBoard();
-});
+}
