@@ -39,7 +39,7 @@ function createGameBoard() {
 
     const content = document.createElement("div");
     content.classList.add("content");
-    content.textContent = "?";
+    // content.textContent = "?";
 
     card.appendChild(content);
 
@@ -87,7 +87,7 @@ function checkMatch() {
   } else {
     selectedCards.forEach((card) => {
       const content = card.querySelector(".content");
-      content.textContent = "?";
+      // content.textContent = "?";
       card.classList.remove("flip");
     });
   }
