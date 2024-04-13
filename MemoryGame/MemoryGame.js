@@ -61,6 +61,7 @@ function flipCard(card) {
     !selectedCards.includes(card) &&
     !card.classList.contains("matched")
   ) {
+    card.classList.add("flip");
     card.textContent = card.dataset.symbol;
     selectedCards.push(card);
     if (selectedCards.length === 2) {
@@ -77,7 +78,10 @@ function checkMatch() {
       card.removeEventListener("click", () => flipCard(card));
     });
   } else {
-    selectedCards.forEach((card) => (card.textContent = "?"));
+    selectedCards.forEach((card) => {
+      card.textContent = "?";
+      card.classList.remove("flip");
+    });
   }
   selectedCards = [];
   checkWin();

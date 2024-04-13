@@ -28,37 +28,34 @@ h1 {
 }
 
 .card {
-  /* width: 100px;
-  height: 150px; */
   background-color: #f9dec2;
   margin: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 36px; /* Increased font size */
-  font-weight: bold; /* Bold text */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added box shadow */
+  font-size: 36px;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: transform 0.3s ease; /* Added smooth transition */
+  transition: transform 0.3s ease;
 }
 
 .card:hover {
-  transform: scale(1.05); /* Enlarge card on hover */
+  transform: scale(1.05);
 }
 
 .card.matched {
   background-color: #8bc34a;
-  color: #fff; /* White text for matched cards */
+  color: #fff;
 }
 
 .restartButtonContainer {
   display: flex;
   justify-content: center;
-  margin-top: 20px; /* Adjust the margin as needed */
+  margin-top: 20px;
 }
 
-/* Update the restart button style */
 #restartButton {
   background-color: #8bc34a;
   color: white;
@@ -73,73 +70,7 @@ h1 {
 #restartButton:hover {
   background-color: #689f38;
 }
-/* .card {
-  background: linear-gradient(45deg, #ffffff, #f0f0f0);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-}
 
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-  transition: opacity 0.3s ease;
-  opacity: 0;
-  border-radius: 10px;
+.card .flip {
+  transform: rotateY(180deg);
 }
-
-.card:hover::before {
-  opacity: 1;
-}
-
-.card:hover {
-  transform: translateY(-5px) scale(1.02);
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.card-content {
-  padding: 20px;
-}
-
-.card-content h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.card-content p {
-  font-size: 18px;
-  margin-bottom: 20px;
-  color: #666;
-}
-
-.card-content .btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #333;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.card-content .btn:hover {
-  background-color: #555;
-  transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-} */
