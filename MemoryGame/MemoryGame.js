@@ -2,8 +2,21 @@ document.addEventListener("DOMContentLoaded", function () {
   createGameBoard();
 });
 
-const symbols = ["🍎", "🍌", "🍒", "🍉", "🍇", "🥝", "🍓", "🍊", "🍋"]; // Add more symbols if needed
-const totalPairs = 9; // Set the number of pairs here
+const symbols = [
+  "🍎",
+  "🍌",
+  "🍒",
+  "🍉",
+  "🍇",
+  "🥝",
+  "🍓",
+  "🍊",
+  "🍋",
+  "🍍",
+  "🥭",
+  "🍑",
+];
+const totalPairs = 12;
 
 let cards = [];
 let selectedCards = [];
